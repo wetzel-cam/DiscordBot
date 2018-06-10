@@ -15,6 +15,10 @@ public class SettingsManager {
     public SettingsManager() {
         settings = new Settings();
 
-        settings.setBotToken("");
+        settings.setBotToken();
+    }
+
+    public Settings getSettings() {
+        return settings;
     }
 }

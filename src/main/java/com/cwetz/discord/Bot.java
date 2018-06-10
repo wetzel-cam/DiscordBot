@@ -1,6 +1,8 @@
 package com.cwetz.discord;
 
 import com.cwetz.discord.commands.AssignRoleCmd;
+import com.cwetz.discord.util.Settings;
+import com.cwetz.discord.util.SettingsManager;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -11,11 +13,11 @@ import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
 
 public class Bot implements EventListener {
-    private static final String TOKEN = "";
     private static JDA api;
 
     public static void main(String[] args) {
-        JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT).setToken(TOKEN);
+        JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT).setToken(SettingsManager.getInstance()
+                .getSettings().getBotToken());
         jdaBuilder.addEventListener(new AssignRoleCmd());
         jdaBuilder.addEventListener(new Bot());
 
