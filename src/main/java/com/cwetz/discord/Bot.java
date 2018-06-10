@@ -1,7 +1,6 @@
 package com.cwetz.discord;
 
 import com.cwetz.discord.commands.AssignRoleCmd;
-import com.cwetz.discord.util.Settings;
 import com.cwetz.discord.util.SettingsManager;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
