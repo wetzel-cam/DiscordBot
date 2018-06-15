@@ -15,6 +15,7 @@ public class Bot implements EventListener {
     private static JDA api;
 
     public static void main(String[] args) {
+        SettingsManager.getInstance().clean();
         JDABuilder jdaBuilder = new JDABuilder(AccountType.BOT).setToken(SettingsManager.getInstance()
                 .getSettings().getBotToken());
         jdaBuilder.addEventListener(new AssignRoleCmd());

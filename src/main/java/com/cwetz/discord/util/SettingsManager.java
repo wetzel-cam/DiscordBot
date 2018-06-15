@@ -27,9 +27,21 @@ public class SettingsManager {
         try {
             reader = Files.newBufferedReader(path);
             settings.setBotToken(reader.readLine());
+            Logger.getInstance().logSuccess("Token loaded");
         } catch(IOException e){
             // Make it write to a log file
-            System.out.println("The token file does not exist.");
+            Logger.getInstance().logError("The token file does not exist");
+        }
+
+    }
+
+    public void clean() {
+        // Make a list of files to track and check for them?
+        // Keep static path names or final path names in separate config and load?
+        // possibly a static list of paths to each file to be tracked, have static getter methods to get them
+        Path logfile = new File(".").toPath().resolve("execute.log");
+        if (logfile.toFile().exists()) {
+            logfile.toFile().delete();
         }
     }
 
